@@ -1,0 +1,5 @@
+Jogo da Forca Tradicional, uma palavra será aleatorizada de acordo com o nível escolhido e você terá 7 chances para acertar, se você perder seu boneco será enforcado
+então faça o máximo possível para vencer :)
+
+Instruções:
+  Coloque o arquivo "Palavras.txt" na mesma pasta do programa principal e pronto.
