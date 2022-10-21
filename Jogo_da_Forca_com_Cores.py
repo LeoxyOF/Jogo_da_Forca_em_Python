@@ -197,7 +197,8 @@ def perdeu_ou_ganhou(resposta_do_usuario, palpites, palavra):
         print("           ) (          ")
         print("         _.' '._        ")
         print("        '-------'       ")
-        print(f"\n\033[1;35mPalpites:\033[m {palpites}")
+        print(f"\n\033[1;35mPalpites:\033[1;36m {palpites}")
+        return 1
     else:
         print("\033[1;31m=" * 40)
         print("VOCÊ FOI ENFORCADO :(".center(40))
@@ -220,6 +221,7 @@ def perdeu_ou_ganhou(resposta_do_usuario, palpites, palavra):
         print("       \_______/           ")
         sleep(1)
         print(f"\n\033[1;33mA palavra era \033[34m{palavra}")
+        return 0
 
 
 def continuar():
@@ -237,13 +239,18 @@ def continuar():
 
 
 def jogo_da_forca():
+    vitorias = 0
     while True:
         dificuldade_escolhida = inicio()
         palavra_secreta = aleatorizar_palavra_secreta(dificuldade_escolhida)
         sys = sistema_principal(palavra_secreta)
-        perdeu_ou_ganhou(sys[0], sys[1], sys[2])
+        perda_ou_vitoria = perdeu_ou_ganhou(sys[0], sys[1], sys[2])
+        if perda_ou_vitoria == 1:
+            vitorias += 1
+            print(f"\033[1;35mVitórias: \033[1;33m{vitorias}\033[m")
         novamente = continuar()
         if novamente == 0:
+            print("\033[1;33mPrograma Finalizado </>\033[m")
             break
         if novamente == 1:
             continue
