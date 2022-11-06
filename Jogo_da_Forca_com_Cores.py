@@ -226,16 +226,21 @@ def perdeu_ou_ganhou(resposta_do_usuario, palpites, palavra):
 
 def continuar():
     while True:
-        print()
-        cont = str(input("\033[mJogar novamente? [Sim/Não] >> ")).upper().strip()[0]
-        print()
-        if cont == "S" or cont =="N":
-            if cont == "S":
-                return 1
-            if cont == "N":
-                return 0
+        try:
+            print()
+            continuar = str(input("\033[mJogar Novamente? [S/N]: ")).strip().upper()[0]
+            print()
+            if continuar in 'NS':
+                break
+        except IndexError:
+            print("\033[1;31mDigite Algo!\033[m")
         else:
-            print("\033[1;31mDigite SIM ou NÃO por favor!")
+            print("\033[1;33mDigite um valor válido!")
+    if continuar == "N":
+        print("\033[mPrograma Finalizado </>")
+        return 0
+    if continuar == "S":
+        return 1
 
 
 def jogo_da_forca():
