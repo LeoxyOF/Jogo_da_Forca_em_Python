@@ -255,7 +255,6 @@ def jogo_da_forca():
             print(f"Vitórias: {vitorias}")
         novamente = continuar()
         if novamente == 0:
-            print("Programa Finalizado </>")
             break
         if novamente == 1:
             continue
