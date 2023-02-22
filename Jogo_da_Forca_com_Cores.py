@@ -237,7 +237,7 @@ def continuar():
         else:
             print("\033[1;33mDigite um valor válido!")
     if continuar == "N":
-        print("\033[mPrograma Finalizado </>")
+        print("\033[1;33mPrograma Finalizado </>\033[m")
         return 0
     if continuar == "S":
         return 1
@@ -255,7 +255,6 @@ def jogo_da_forca():
             print(f"\033[1;35mVitórias: \033[1;33m{vitorias}\033[m")
         novamente = continuar()
         if novamente == 0:
-            print("\033[1;33mPrograma Finalizado </>\033[m")
             break
         if novamente == 1:
             continue
